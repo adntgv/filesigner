@@ -4,11 +4,14 @@
 using namespace std;
 
 int main(int argc, char** argv) {
+
+    if (argc < 4) return 1;
+
     Signer s;
     s.Sign(
-        boost::filesystem::path{"input.txt"},
-        boost::filesystem::path{"input.txt"},
-        1024*1024 
+        boost::filesystem::path{argv[1]},
+        boost::filesystem::path{argv[2]},
+        atoi(argv[3]) 
     );
     return 0;
 }
