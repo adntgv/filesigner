@@ -7,6 +7,9 @@ using namespace boost::filesystem;
 
 size_t Signer::Sign(path input_path, path output_path, uintmax_t block_size) {
 
+            if (!boost::filesystem::exists(input_path))
+                throw std::string("File does not exist: ") + input_path.string();
+
             auto in_file_size = file_size(input_path); // size of the file in bytes
             ifstream in_strm{input_path}; 
             ofstream out_strm{output_path};
