@@ -2,7 +2,7 @@
 # укажите здесь логику для конкретного проекта.
 #
 cmake_minimum_required (VERSION 3.8)
-
+set(CMAKE_BUILD_TYPE Debug)
 # Добавьте источник в исполняемый файл этого проекта.
 add_executable (filesigner "main.cpp" "signature.cpp" "signature.h")
 
@@ -15,4 +15,4 @@ set (Boost_USE_STATIC_LIBS OFF) #enable dynamic linking
 find_package (Boost REQUIRED COMPONENTS filesystem)
 
 #link Boost libraries to the new target
-target_link_libraries (filesigner ${Boost_LIBRARIES})
+target_link_libraries (filesigner ${Boost_LIBRARIES} pthread)

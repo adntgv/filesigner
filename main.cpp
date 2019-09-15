@@ -75,13 +75,9 @@ int main(int argc, char** argv) {
         }
     }
 
-    Signer s;
+    Signer s(input_file_path, output_file_path, block_size);
     try {
-        s.Sign(
-            boost::filesystem::path{input_file_path},
-            boost::filesystem::path{output_file_path},
-            block_size
-        );
+        s.Sign(true);
     } catch (string e) {
         std::cerr << e << '\n';
         return 3;
